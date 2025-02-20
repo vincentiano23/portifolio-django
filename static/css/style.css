@@ -1,0 +1,260 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Body Styling */
+body {
+    background: linear-gradient(135deg, #6b6b79, #16213e);
+    color: #eee;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: background 0.5s ease-in-out;
+}
+
+/* Navigation Bar */
+nav {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+nav .menu {
+    display: flex;
+    gap: 15px;
+}
+
+nav a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: #ffcc00;
+    transition: width 0.3s ease-in-out;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Mobile Menu */
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: #ffcc00;
+    cursor: pointer;
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+    background: none;
+    border: none;
+    color: #ffcc00;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.2);
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 120px 20px;
+    background: linear-gradient(120deg, #0f3460, #16213e);
+    color: white;
+    animation: fadeIn 1s ease-in-out;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    animation: slideIn 1s ease-in-out;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    margin-top: 10px;
+}
+
+/* Main Content */
+.container {
+    flex: 1;
+    max-width: 1100px;
+    margin: auto;
+    padding: 30px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background: #ffcc00;
+    padding: 12px 25px;
+    color: #222;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(255, 204, 0, 0.3);
+}
+
+.btn:hover {
+    background: #ff9900;
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark Mode */
+.dark-mode {
+    background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+    color: #fff;
+}
+
+.dark-mode nav {
+    background: rgba(20, 20, 20, 0.9);
+}
+
+.dark-mode .hero {
+    background: linear-gradient(120deg, #222, #111);
+}
+
+.dark-mode .btn {
+    background: #ff9900;
+    color: #fff;
+}
+
+.dark-mode .btn:hover {
+    background: #ffcc00;
+    color: #121;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    nav a {
+        margin: 10px 0;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Profile Image Styling */
+.profile-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 5px solid #ffcc00;
+    transition: transform 0.3s ease-in-out;
+}
+
+.profile-img:hover {
+    transform: scale(1.1);
+}
+
+/* AI Section Styling */
+.ai-box {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    max-width: 500px;
+    margin: auto;
+}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block title %}Home | Vincent Muli{% endblock %}
+
+{% block content %}
+<div class="text-center mt-5">
+    <!-- Profile Image -->
+    <img src="{% static 'images/vin.jpg' %}" alt="Vincent Muli" class="profile-img rounded-circle shadow-lg">
+
+    <h1 class="display-4 mt-3">Welcome to My Portfolio</h1>
+    <p class="lead">AI Enthusiast | Django Developer | ML Explorer</p>
+
+    <a href="{% url 'projects' %}" class="btn btn-warning btn-lg shadow-lg mt-3">View My Work</a>
+</div>
+
+<!-- AI Section -->
+<section class="mt-5 text-center">
+    <h2 class="fw-bold">AI-Powered Features</h2>
+    <p>This portfolio leverages AI to enhance user experience.</p>
+
+    <!-- Placeholder AI Chat or Recommendations -->
+    <div class="ai-box shadow p-4 mt-4">
+        <p class="text-muted">AI Chat & Recommendations coming soon...</p>
+    </div>
+</section>
+
+{% endblock %}
