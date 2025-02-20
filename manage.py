@@ -20,3 +20,6 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+from myPortifolio.wsgi import application  
+app = application 
