@@ -6,22 +6,22 @@
 <div class="container mt-5">
     <div class="row align-items-center">
         <!-- Profile Image -->
-        <div class="col-md-4 text-center">
-            <img src="{% static 'images/vin2.jpg' %}" alt="Vincent Muli" class="profile-img rounded-circle shadow-lg">
+        <div class="col-lg-4 text-center">
+            <img src="{% static 'images/vin2.jpg' %}" alt="Vincent Muli" class="profile-img rounded-circle shadow-lg img-fluid">
         </div>
 
         <!-- About Me -->
-        <div class="col-md-8">
-            <h2 class="fw-bold">About Me</h2>
-            <p>
-                Hi, I'm <strong>Vincent Muli</strong>, a passionate software developer specializing in <strong>Django</strong>, 
-                <strong>Artificial Intelligence</strong>, and <strong>Machine Learning</strong>. I love building innovative solutions 
-                that bridge the gap between technology and real-world problems.
+        <div class="col-lg-8">
+            <h2 class="fw-bold text-warning">About Me</h2>
+            <p class="text-dark">
+                Hi, I'm <strong>Vincent Muli</strong>, a passionate software developer specializing in 
+                <strong>Django</strong>, <strong>Artificial Intelligence</strong>, and <strong>Machine Learning</strong>. 
+                I love building innovative solutions that bridge the gap between technology and real-world problems.
             </p>
-            <p>
-                My journey started with curiosity about how web applications work. Over the years, I have gained expertise in 
-                Python, backend development, and AI-driven systems. I enjoy working on projects that integrate AI into everyday 
-                applications, making them smarter and more efficient.
+            <p class="text-dark">
+                My journey started with curiosity about how web applications work. Over the years, I have gained expertise 
+                in Python, backend development, and AI-driven systems. I enjoy working on projects that integrate AI into 
+                everyday applications, making them smarter and more efficient.
             </p>
         </div>
     </div>
@@ -29,46 +29,78 @@
     <!-- Skills Section -->
     <div class="row mt-5">
         <div class="col-md-12">
-            <h2 class="fw-bold text-center">Skills & Expertise</h2>
+            <h2 class="fw-bold text-center text-warning">Skills & Expertise</h2>
         </div>
 
         <div class="col-md-6">
-            <h4>Web Development</h4>
-            <ul>
-                <li>Django (Backend Development)</li>
-                <li>Bootstrap & Modern UI/UX</li>
-                <li>API Development & Integration</li>
+            <h4 class="text-dark"><i class="fas fa-code text-warning"></i> Web Development</h4>
+            <ul class="list-unstyled text-dark">
+                <li><i class="fas fa-check-circle text-success"></i> Django (Backend Development)</li>
+                <li><i class="fas fa-check-circle text-success"></i> Bootstrap & Modern UI/UX</li>
+                <li><i class="fas fa-check-circle text-success"></i> API Development & Integration</li>
             </ul>
 
-            <h4>Artificial Intelligence & Machine Learning</h4>
-            <ul>
-                <li>AI-Powered Applications</li>
-                <li>Data Analysis & Visualization</li>
-                <li>Predictive Modeling</li>
+            <h4 class="text-dark"><i class="fas fa-brain text-warning"></i> AI & Machine Learning</h4>
+            <ul class="list-unstyled text-dark">
+                <li><i class="fas fa-check-circle text-success"></i> AI-Powered Applications</li>
+                <li><i class="fas fa-check-circle text-success"></i> Data Analysis & Visualization</li>
+                <li><i class="fas fa-check-circle text-success"></i> Predictive Modeling</li>
             </ul>
         </div>
 
         <div class="col-md-6">
-            <h4>Programming Languages</h4>
-            <ul>
-                <li>Python (Flask, Django)</li>
-                <li>JavaScript (React, Vue.js basics)</li>
-                <li>SQL & Database Management</li>
+            <h4 class="text-dark"><i class="fas fa-laptop-code text-warning"></i> Programming Languages</h4>
+            <ul class="list-unstyled text-dark">
+                <li><i class="fas fa-check-circle text-success"></i> Python (Flask, Django)</li>
+                <li><i class="fas fa-check-circle text-success"></i> JavaScript (React, Vue.js basics)</li>
+                <li><i class="fas fa-check-circle text-success"></i> SQL & Database Management</li>
             </ul>
 
-            <h4>Other Skills</h4>
-            <ul>
-                <li>Cloud Computing & Deployment</li>
-                <li>Version Control (Git & GitHub)</li>
-                <li>Problem-Solving & Team Collaboration</li>
+            <h4 class="text-dark"><i class="fas fa-cloud text-warning"></i> Other Skills</h4>
+            <ul class="list-unstyled text-dark">
+                <li><i class="fas fa-check-circle text-success"></i> Cloud Computing & Deployment</li>
+                <li><i class="fas fa-check-circle text-success"></i> Version Control (Git & GitHub)</li>
+                <li><i class="fas fa-check-circle text-success"></i> Problem-Solving & Team Collaboration</li>
             </ul>
+        </div>
+    </div>
+
+    <!-- Featured Deployed Projects Section -->
+    <div class="row mt-5">
+        <div class="col-md-12 text-center">
+            <h2 class="fw-bold text-warning">Featured Projects</h2>
+            <p class="text-dark">Check out some of my deployed projects:</p>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-lg p-3 mb-4 text-center">
+                <h5 class="fw-bold text-dark"><i class="fas fa-feather text-warning"></i> Poultry Management System</h5>
+                <p class="text-muted">A Django-based system for efficient poultry farm management.</p>
+                <a href="https://poultrymanagement.onrender.com" class="btn btn-outline-primary btn-sm" target="_blank">View Project</a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-lg p-3 mb-4 text-center">
+                <h5 class="fw-bold text-dark"><i class="fas fa-tasks text-warning"></i> To-Do List App</h5>
+                <p class="text-muted">A simple and efficient to-do list application built with Django.</p>
+                <a href="https://to-do-list-4hmm.onrender.com" class="btn btn-outline-primary btn-sm" target="_blank">View Project</a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-lg p-3 mb-4 text-center">
+                <h5 class="fw-bold text-dark"><i class="fas fa-birthday-cake text-warning"></i> Happy Birthday App</h5>
+                <p class="text-muted">A fun and interactive birthday celebration web app.</p>
+                <a href="https://happybirthdaytome.onrender.com" class="btn btn-outline-primary btn-sm" target="_blank">View Project</a>
+            </div>
         </div>
     </div>
 
     <!-- Call to Action -->
     <div class="text-center mt-5">
         <a href="{% url 'projects' %}" class="btn btn-warning btn-lg shadow-lg">Explore My Work</a>
-        <a href="{% url 'contact' %}" class="btn btn-outline-light btn-lg shadow-lg ms-3">Get in Touch</a>
+        <a href="{% url 'contact' %}" class="btn btn-outline-dark btn-lg shadow-lg ms-3">Get in Touch</a>
     </div>
 </div>
 {% endblock %}

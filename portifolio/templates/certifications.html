@@ -4,28 +4,41 @@
 
 {% block content %}
 <div class="container mt-5 text-center">
-    <h2 class="fw-bold">My Certifications</h2>
-    <p>Below are my professional certifications and achievements.</p>
+    <h2 class="fw-bold text-primary">My Certifications</h2>
+    <p class="text-muted">Professional certifications and achievements will be listed here.</p>
 
+    {% if certifications %}
     <div class="row mt-4">
+        {% for certificate in certifications %}
         <div class="col-md-4">
-            <div class="card">
-                <img src="{% static 'images/certificate1.jpg' %}" class="card-img-top" alt="Certificate 1">
+            <div class="card shadow-lg border-0">
+                <img src="{{ certificate.image_url }}" class="card-img-top" alt="{{ certificate.title }}">
                 <div class="card-body">
-                    <h5 class="card-title">AI & Machine Learning</h5>
-                    <a href="{% static 'docs/certificate1.pdf' %}" target="_blank" class="btn btn-primary">View</a>
+                    <h5 class="card-title">{{ certificate.title }}</h5>
+                    <a href="{{ certificate.pdf_url }}" target="_blank" class="btn btn-primary">View</a>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card">
-                <img src="{% static 'images/certificate2.jpg' %}" class="card-img-top" alt="Certificate 2">
-                <div class="card-body">
-                    <h5 class="card-title">Django & Web Development</h5>
-                    <a href="{% static 'docs/certificate2.pdf' %}" target="_blank" class="btn btn-primary">View</a>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
+    {% else %}
+    <div class="alert alert-info mt-4 fade show" role="alert" id="noCertificatesMessage">
+        <i class="fas fa-info-circle"></i> No certifications available yet. Check back later!
+    </div>
+    {% endif %}
 </div>
+
+<!-- Auto-hide No Certificates Message -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    let noCertificatesMessage = document.getElementById("noCertificatesMessage");
+    if (noCertificatesMessage) {
+        setTimeout(() => {
+            noCertificatesMessage.classList.add("fade");
+            noCertificatesMessage.remove();
+        }, 5000);
+    }
+});
+</script>
+
 {% endblock %}

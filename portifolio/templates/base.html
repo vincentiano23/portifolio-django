@@ -17,21 +17,33 @@
         /* Custom Styles */
         body {
             transition: background 0.3s, color 0.3s;
+            background-color: #f8f9fa; /* Light mode background */
+            color: #212529; /* Light mode text */
         }
+        
         .dark-mode {
-            background-color: #1a1a1a;
-            color: #e0e0e0;
+            background-color: #121212 !important; /* Dark mode background */
+            color: #e0e0e0 !important; /* Dark mode text */
         }
+
         .navbar {
-            transition: background 0.3s;
+            transition: background 0.3s, color 0.3s;
+            background-color: #343a40; /* Darker navbar */
         }
+
         .dark-mode .navbar {
-            background-color: #121212;
+            background-color: #1e1e1e !important;
         }
+
+        .dark-mode .nav-link {
+            color: #ffffff !important;
+        }
+
         .dark-mode .btn-light {
             background-color: #333;
             color: #fff;
         }
+
         .theme-toggle {
             font-size: 1.2rem;
             padding: 8px 12px;
@@ -40,30 +52,43 @@
             cursor: pointer;
             transition: transform 0.2s ease-in-out;
         }
+
         .theme-toggle:hover {
             transform: scale(1.1);
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        .dark-mode .footer {
+            background-color: #1e1e1e !important;
+            color: #bdbdbd !important;
         }
     </style>
 </head>
 <body>
     
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+    <nav class="navbar navbar-expand-lg navbar-dark shadow">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="{% url 'home' %}">Vincent Muli</a>
+            <a class="navbar-brand fw-bold text-warning" href="{% url 'home' %}">Vincent Muli</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link fw-medium" href="{% url 'about' %}">About</a></li>
-                    <li class="nav-item"><a class="nav-link fw-medium" href="{% url 'projects' %}">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link fw-medium" href="{% url 'contact' %}">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link fw-medium" href="{% url 'certifications' %}">Certifications</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium text-light" href="{% url 'about' %}">About</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium text-light" href="{% url 'projects' %}">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium text-light" href="{% url 'contact' %}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium text-light" href="{% url 'certifications' %}">Certifications</a></li>
                     
                     <!-- Theme Toggle Button -->
                     <li class="nav-item">
                         <button id="theme-toggle" class="theme-toggle ms-3 btn">
-                            <i id="theme-icon" class="fas fa-moon text-white"></i>
+                            <i id="theme-icon" class="fas fa-moon text-warning"></i>
                         </button>
                     </li>
                 </ul>
@@ -75,7 +100,7 @@
         {% block content %}{% endblock %}
     </main>
 
-    <footer class="bg-dark text-white text-center p-3 mt-4">
+    <footer class="footer mt-4">
         <p>© 2025 Vincent Muli | Powered by AI</p>
     </footer>
 

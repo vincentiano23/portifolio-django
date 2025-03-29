@@ -4,21 +4,36 @@
 
 {% block content %}
 <div class="container mt-5">
-    <h2 class="text-center mb-4">My Projects</h2>
+    <h2 class="text-center mb-4 fw-bold text-primary">My Projects</h2>
     
     <div class="row">
         {% for project in projects %}
         <div class="col-md-4">
             <div class="card shadow-lg mb-4">
-                <div class="card-body">
-                    <h5 class="card-title">{{ project.name }}</h5>
-                    <p class="card-text">{{ project.description }}</p>
-                    <a href="{{ project.github_url }}" target="_blank" class="btn btn-primary">View on GitHub</a>
+                {% if project.image %}
+                <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.name }}">
+                {% else %}
+                <img src="{% static 'images/default_project.jpg' %}" class="card-img-top" alt="Project Image">
+                {% endif %}
+                
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold">{{ project.name }}</h5>
+                    <p class="card-text text-muted">{{ project.description }}</p>
+                    
+                    <a href="{{ project.live_demo_url }}" target="_blank" class="btn btn-warning">
+                        <i class="fas fa-external-link-alt"></i> View Live
+                    </a>
+                    
+                    {% if project.details_url %}
+                    <a href="{{ project.details_url }}" class="btn btn-outline-dark ms-2">
+                        <i class="fas fa-info-circle"></i> More Details
+                    </a>
+                    {% endif %}
                 </div>
             </div>
         </div>
         {% empty %}
-        <p class="text-center">No projects available at the moment.</p>
+        <p class="text-center text-muted">No projects available at the moment.</p>
         {% endfor %}
     </div>
 </div>
