@@ -5,6 +5,9 @@ from .forms import ContactForm
 def home(request):
     return render(request, 'home.html')
 
+def certifications(request):
+    return render(request, 'certifications.html') 
+
 def about(request):
     return render(request, 'about.html')
 

@@ -9,24 +9,62 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <!-- FontAwesome for Modern Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Custom Styles */
+        body {
+            transition: background 0.3s, color 0.3s;
+        }
+        .dark-mode {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+        .navbar {
+            transition: background 0.3s;
+        }
+        .dark-mode .navbar {
+            background-color: #121212;
+        }
+        .dark-mode .btn-light {
+            background-color: #333;
+            color: #fff;
+        }
+        .theme-toggle {
+            font-size: 1.2rem;
+            padding: 8px 12px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+    </style>
 </head>
 <body>
     
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">Vincent Muli</a>
+            <a class="navbar-brand fw-bold" href="{% url 'home' %}">Vincent Muli</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'projects' %}">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="{% url 'about' %}">About</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="{% url 'projects' %}">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="{% url 'contact' %}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="{% url 'certifications' %}">Certifications</a></li>
                     
                     <!-- Theme Toggle Button -->
                     <li class="nav-item">
-                        <button id="theme-toggle" class="btn btn-light ms-3">🌙</button>
+                        <button id="theme-toggle" class="theme-toggle ms-3 btn">
+                            <i id="theme-icon" class="fas fa-moon text-white"></i>
+                        </button>
                     </li>
                 </ul>
             </div>
@@ -47,13 +85,13 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const toggleButton = document.getElementById("theme-toggle");
+            const themeIcon = document.getElementById("theme-icon");
             const body = document.body;
 
             // Check local storage for theme preference
             if (localStorage.getItem("theme") === "dark") {
                 body.classList.add("dark-mode");
-                toggleButton.textContent = "☀️"; // Change to sun when dark mode is active
-                toggleButton.classList.replace("btn-light", "btn-dark");
+                themeIcon.classList.replace("fa-moon", "fa-sun");
             }
 
             toggleButton.addEventListener("click", function () {
@@ -61,12 +99,10 @@
                 
                 if (body.classList.contains("dark-mode")) {
                     localStorage.setItem("theme", "dark");
-                    toggleButton.textContent = "☀️"; // Change to sun when dark mode is active
-                    toggleButton.classList.replace("btn-light", "btn-dark");
+                    themeIcon.classList.replace("fa-moon", "fa-sun");
                 } else {
                     localStorage.setItem("theme", "light");
-                    toggleButton.textContent = "🌙"; // Change to moon for light mode
-                    toggleButton.classList.replace("btn-dark", "btn-light");
+                    themeIcon.classList.replace("fa-sun", "fa-moon");
                 }
             });
         });

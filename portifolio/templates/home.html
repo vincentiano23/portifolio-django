@@ -4,9 +4,9 @@
 {% block title %}Home | Vincent Muli{% endblock %}
 
 {% block content %}
-<div class="text-center mt-5">
+<div class="container text-center mt-5">
     <!-- Profile Image -->
-    <img src="{% static 'images/vin.jpg' %}" alt="Vincent Muli" class="profile-img rounded-circle shadow-lg">
+    <img src="{% static 'images/vin.jpg' %}" alt="Vincent Muli" class="profile-img rounded-circle shadow-lg" width="150" height="150">
 
     <h1 class="display-4 mt-3">Welcome to My Portfolio</h1>
     <p class="lead">AI Enthusiast | Django Developer | ML Explorer</p>
@@ -25,4 +25,16 @@
     </div>
 </section>
 
+<!-- Certifications Section -->
+<section id="certifications" class="mt-5 text-center bg-light py-5">
+    <div class="container">
+        <h2 class="fw-bold">Certifications & Resume</h2>
+        <p>Explore my certifications and professional documents.</p>
+
+        <div class="d-flex justify-content-center mt-1">
+            <a href="{% static 'docs/Vincent_Resume.pdf' %}" class="btn btn-primary me-3" target="_blank">View Resume</a>
+            <a href="{% url 'certifications' %}" class="btn btn-outline-dark">View Certifications</a>
+        </div>
+    </div>
+</section>
 {% endblock %}

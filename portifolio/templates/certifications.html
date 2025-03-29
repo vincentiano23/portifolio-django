@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block title %}Certifications | Vincent Muli{% endblock %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+    <h2 class="fw-bold">My Certifications</h2>
+    <p>Below are my professional certifications and achievements.</p>
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card">
+                <img src="{% static 'images/certificate1.jpg' %}" class="card-img-top" alt="Certificate 1">
+                <div class="card-body">
+                    <h5 class="card-title">AI & Machine Learning</h5>
+                    <a href="{% static 'docs/certificate1.pdf' %}" target="_blank" class="btn btn-primary">View</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="{% static 'images/certificate2.jpg' %}" class="card-img-top" alt="Certificate 2">
+                <div class="card-body">
+                    <h5 class="card-title">Django & Web Development</h5>
+                    <a href="{% static 'docs/certificate2.pdf' %}" target="_blank" class="btn btn-primary">View</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
