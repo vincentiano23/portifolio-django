@@ -43,3 +43,7 @@ def contact_view(request):
         form = ContactForm()
 
     return render(request, 'contact.html', {'form': form})
+
+def privacy_policy(request):
+    return render(request, 'privacy_policy.html')
+

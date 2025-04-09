@@ -10,18 +10,22 @@
             <img src="{% static 'images/vin2.jpg' %}" alt="Vincent Muli" class="profile-img rounded-circle shadow-lg img-fluid">
         </div>
 
-        <!-- About Me -->
+        <!-- About Me Section -->
         <div class="col-lg-8">
             <h2 class="fw-bold text-warning">About Me</h2>
             <p class="text-dark">
-                Hi, I'm <strong>Vincent Muli</strong>, a passionate software developer specializing in 
+                Hi, I'm <strong>Vincent Muli</strong>, a dedicated software developer specializing in 
                 <strong>Django</strong>, <strong>Artificial Intelligence</strong>, and <strong>Machine Learning</strong>. 
-                I love building innovative solutions that bridge the gap between technology and real-world problems.
+                I am passionate about leveraging technology to solve real-world problems.
             </p>
             <p class="text-dark">
-                My journey started with curiosity about how web applications work. Over the years, I have gained expertise 
-                in Python, backend development, and AI-driven systems. I enjoy working on projects that integrate AI into 
-                everyday applications, making them smarter and more efficient.
+                My journey into programming began with a deep curiosity about how applications function. Over time, I have 
+                honed my skills in backend development, AI-powered solutions, and intuitive web applications. I thrive on 
+                building scalable, efficient, and intelligent systems that enhance user experiences.
+            </p>
+            <p class="text-dark">
+                Whether it's developing web platforms, integrating AI models, or optimizing software performance, 
+                I am always eager to learn, innovate, and create impact through technology.
             </p>
         </div>
     </div>
@@ -33,43 +37,43 @@
         </div>
 
         <div class="col-md-6">
-            <h4 class="text-dark"><i class="fas fa-code text-warning"></i> Web Development</h4>
+            <h4 class="text-dark"><i class="fas fa-code text-warning"></i> Web & Backend Development</h4>
             <ul class="list-unstyled text-dark">
-                <li><i class="fas fa-check-circle text-success"></i> Django (Backend Development)</li>
-                <li><i class="fas fa-check-circle text-success"></i> Bootstrap & Modern UI/UX</li>
-                <li><i class="fas fa-check-circle text-success"></i> API Development & Integration</li>
+                <li><i class="fas fa-check-circle text-success"></i> Django & Flask (Python Backend)</li>
+                <li><i class="fas fa-check-circle text-success"></i> RESTful API Development</li>
+                <li><i class="fas fa-check-circle text-success"></i> Frontend (Bootstrap, React Basics)</li>
             </ul>
 
-            <h4 class="text-dark"><i class="fas fa-brain text-warning"></i> AI & Machine Learning</h4>
+            <h4 class="text-dark"><i class="fas fa-brain text-warning"></i> Artificial Intelligence & Data Science</h4>
             <ul class="list-unstyled text-dark">
                 <li><i class="fas fa-check-circle text-success"></i> AI-Powered Applications</li>
                 <li><i class="fas fa-check-circle text-success"></i> Data Analysis & Visualization</li>
-                <li><i class="fas fa-check-circle text-success"></i> Predictive Modeling</li>
+                <li><i class="fas fa-check-circle text-success"></i> Predictive Analytics & Machine Learning</li>
             </ul>
         </div>
 
         <div class="col-md-6">
-            <h4 class="text-dark"><i class="fas fa-laptop-code text-warning"></i> Programming Languages</h4>
+            <h4 class="text-dark"><i class="fas fa-laptop-code text-warning"></i> Programming & Databases</h4>
             <ul class="list-unstyled text-dark">
-                <li><i class="fas fa-check-circle text-success"></i> Python (Flask, Django)</li>
+                <li><i class="fas fa-check-circle text-success"></i> Python (Django, Flask)</li>
                 <li><i class="fas fa-check-circle text-success"></i> JavaScript (React, Vue.js basics)</li>
-                <li><i class="fas fa-check-circle text-success"></i> SQL & Database Management</li>
+                <li><i class="fas fa-check-circle text-success"></i> SQL & NoSQL Database Management</li>
             </ul>
 
-            <h4 class="text-dark"><i class="fas fa-cloud text-warning"></i> Other Skills</h4>
+            <h4 class="text-dark"><i class="fas fa-cloud text-warning"></i> Cloud & Deployment</h4>
             <ul class="list-unstyled text-dark">
-                <li><i class="fas fa-check-circle text-success"></i> Cloud Computing & Deployment</li>
+                <li><i class="fas fa-check-circle text-success"></i> Cloud Computing & DevOps</li>
                 <li><i class="fas fa-check-circle text-success"></i> Version Control (Git & GitHub)</li>
-                <li><i class="fas fa-check-circle text-success"></i> Problem-Solving & Team Collaboration</li>
+                <li><i class="fas fa-check-circle text-success"></i> CI/CD Pipeline & Server Management</li>
             </ul>
         </div>
     </div>
 
-    <!-- Featured Deployed Projects Section -->
+    <!-- Featured Projects Section -->
     <div class="row mt-5">
         <div class="col-md-12 text-center">
             <h2 class="fw-bold text-warning">Featured Projects</h2>
-            <p class="text-dark">Check out some of my deployed projects:</p>
+            <p class="text-dark">Here are some of my recent works:</p>
         </div>
 
         <div class="col-md-4">
@@ -91,7 +95,7 @@
         <div class="col-md-4">
             <div class="card shadow-lg p-3 mb-4 text-center">
                 <h5 class="fw-bold text-dark"><i class="fas fa-birthday-cake text-warning"></i> Happy Birthday App</h5>
-                <p class="text-muted">A fun and interactive birthday celebration web app.</p>
+                <p class="text-muted">An interactive web app for celebrating birthdays online.</p>
                 <a href="https://happybirthdaytome.onrender.com" class="btn btn-outline-primary btn-sm" target="_blank">View Project</a>
             </div>
         </div>
@@ -99,6 +103,8 @@
 
     <!-- Call to Action -->
     <div class="text-center mt-5">
+        <h3 class="fw-bold text-dark">Want to collaborate?</h3>
+        <p class="text-muted">I'm always open to new opportunities and collaborations. Let's build something amazing together!</p>
         <a href="{% url 'projects' %}" class="btn btn-warning btn-lg shadow-lg">Explore My Work</a>
         <a href="{% url 'contact' %}" class="btn btn-outline-dark btn-lg shadow-lg ms-3">Get in Touch</a>
     </div>
