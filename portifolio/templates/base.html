@@ -17,10 +17,10 @@
         :root {
             --primary-color: #ffcc00;
             --secondary-color: #343a40;
-            --bg-color: #f8f9fa;
+            --bg-color:light-grey;
             --text-color: #212529;
         }
-
+        
         /* Theme styles */
         [data-theme="blue"] {
             --primary-color: #007bff;
@@ -28,62 +28,95 @@
             --bg-color: #e3f2fd;
             --text-color: #0c1f3f;
         }
-
+        
         [data-theme="green"] {
             --primary-color: #28a745;
             --secondary-color: #155724;
             --bg-color: #e9fbe3;
             --text-color: #102b12;
         }
-
+        
         [data-theme="purple"] {
             --primary-color: #6f42c1;
             --secondary-color: #4e2a84;
             --bg-color: #f3e8ff;
             --text-color: #2e1b4b;
         }
-
+        
         [data-theme="orange"] {
             --primary-color: #fd7e14;
             --secondary-color: #b35c00;
             --bg-color: #fff5e6;
             --text-color: #732d00;
         }
-
+        
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
             transition: background 0.3s, color 0.3s;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures the body takes full height */
         }
-
+        
+        .main-content {
+            flex: 1; /* Allows the main content to grow and fill the space */
+        }
+        
         .navbar {
             background-color: var(--secondary-color) !important;
+            transition: background-color 0.3s;
         }
-
+        
+        .navbar:hover {
+            background-color: darken(var(--secondary-color), 10%); /* Darkens on hover */
+        }
+        
         .btn {
             background-color: var(--primary-color);
             color: white;
             border: none;
+            transition: background-color 0.3s, transform 0.2s; /* Animation on hover */
         }
-
+        
         .btn:hover {
             background-color: var(--secondary-color);
             color: white;
+            transform: scale(1.05); /* Slightly enlarges the button on hover */
         }
-
+        
         footer {
             background-color: var(--secondary-color);
             color: white;
             padding: 20px 0;
+            position: relative; /* Allows for positioning */
+            bottom: 0; /* Sticks to the bottom */
+            width: 100%; /* Full width */
         }
-
+        
         footer a {
             color: white;
             text-decoration: none;
+            transition: color 0.3s; /* Animation for link color */
         }
-
+        
         footer a:hover {
             text-decoration: underline;
+            color: var(--primary-color); /* Changes color on hover */
+        }
+        
+        /* Animation for footer */
+        footer {
+            animation: fadeIn 0.5s ease-in; /* Fade-in effect for footer */
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
     </style>
 </head>
