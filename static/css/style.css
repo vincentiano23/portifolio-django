@@ -176,22 +176,24 @@ body {
     margin-right: auto;
 }
 
-/* --- Profile Image Styling --- */
+/* --- Profile Image Styling (Global for all pages) --- */
+/* This is the primary definition for .profile-img */
 .profile-img {
-    width: 180px;
-    height: 180px;
+    width: 250px; /* Default size for medium/large screens */
+    height: 250px; /* Default size for medium/large screens */
     border-radius: 50%;
     object-fit: cover;
     border: 5px solid var(--primary-color); /* Border uses primary color */
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Default margin below image */
 }
 
 .profile-img:hover {
-    transform: scale(1.08);
+    transform: scale(1.05); /* Slightly smaller hover effect for consistency */
     border-color: var(--secondary-color); /* Hover border uses secondary color */
 }
+
 
 /* --- AI Section Styling (Example) --- */
 .ai-box {
@@ -245,8 +247,6 @@ footer a:hover {
 }
 
 /* Theme-specific adjustments for cards (apply to project-card itself) */
-/* The key here is to have these selectors specific enough to override the .project-card defaults
-   when the body has the data-theme attribute. */
 body[data-theme="blue"] .project-card,
 body[data-theme="green"] .project-card,
 body[data-theme="purple"] .project-card,
@@ -319,6 +319,66 @@ body[data-theme="orange"] .project-card {
     color: white;
     border-color: var(--secondary-color);
     transform: translateY(-2px);
+}
+
+/* --- About Page Specific Styles --- */
+.about-card {
+    background-color: white; /* Default light background for card */
+    color: var(--text-color); /* Text color from theme */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border: none; /* Remove default card border */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Theme-specific adjustments for the about card */
+body[data-theme="blue"] .about-card,
+body[data-theme="green"] .about-card,
+body[data-theme="purple"] .about-card,
+body[data-theme="orange"] .about-card {
+    background-color: var(--bg-color); /* Card background takes theme's background */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.about-card .card-title {
+    color: var(--secondary-color); /* Title uses secondary color for contrast */
+}
+
+.about-card .lead {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.about-card .card-text.text-muted {
+    /* Changed from !important to direct variable use, assuming it's specific enough.
+       If it doesn't work, you can re-add !important, but try without first. */
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+.about-card .text-primary {
+    color: var(--primary-color) !important; /* Link uses primary theme color */
+}
+
+/* Ensure buttons within about card follow theme */
+.about-card .btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+}
+.about-card .btn-primary:hover {
+    background-color: var(--secondary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+.about-card .btn-outline-secondary {
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+.about-card .btn-outline-secondary:hover {
+    background-color: var(--secondary-color);
+    color: white;
+    border-color: var(--secondary-color);
 }
 
 /* --- Animations --- */
@@ -397,6 +457,34 @@ body[data-theme="orange"] .project-card {
         flex: 0 0 auto;
         width: 50%; /* Show two cards per row on medium screens */
     }
+
+    /* About Page Specific */
+    .profile-img {
+        width: 180px;
+        height: 180px;
+        margin-bottom: 25px; /* Add space below image on small screens */
+    }
+    .about-card {
+        padding: 25px;
+    }
+    .about-card .card-title {
+        font-size: 1.3rem;
+    }
+    .about-card .card-text.lead {
+        font-size: 1rem;
+    }
+    .about-card .card-text {
+        font-size: 0.9rem;
+    }
+    .about-card .btn-lg {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+        width: 100%; /* Full width buttons on small screens */
+    }
+    .about-card .btn-lg:first-child {
+        margin-right: 0 !important; /* Remove right margin from first button */
+        margin-bottom: 10px; /* Add bottom margin to first button */
+    }
 }
 
 @media (max-width: 767.98px) { /* Small tablets and large phones */
@@ -410,7 +498,7 @@ body[data-theme="orange"] .project-card {
         font-size: 1.2rem;
     }
     .profile-img {
-        width: 120px;
+        width: 120px; /* Further reduce image size on smaller screens */
         height: 120px;
         border-width: 3px;
     }
@@ -439,6 +527,8 @@ body[data-theme="orange"] .project-card {
     .project-card-img-container {
         height: 180px;
     }
+
+    /* About Page Specific (refine even more for very small screens if needed, otherwise this is sufficient) */
 }
 
 @media (max-width: 575.98px) { /* Extra small devices (phones) */
@@ -464,5 +554,17 @@ body[data-theme="orange"] .project-card {
     }
     .project-card .card-title {
         font-size: 1.3rem;
+    }
+
+    /* About Page Specific */
+    .profile-img {
+        width: 150px;
+        height: 150px;
+    }
+    .about-card {
+        padding: 20px;
+    }
+    .about-card .card-title {
+        font-size: 1.2rem;
     }
 }
