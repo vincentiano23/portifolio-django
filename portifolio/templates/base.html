@@ -1,127 +1,18 @@
 <!DOCTYPE html>
-{% load static %} 
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Vincent Muli | Portfolio{% endblock %}</title>
-    
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    
-    <!-- FontAwesome for Modern Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        :root {
-            --primary-color: #ffcc00;
-            --secondary-color: #343a40;
-            --bg-color:light-gray;
-            --text-color: #212529;
-        }
-        
-        /* Theme styles */
-        [data-theme="blue"] {
-            --primary-color: #007bff;
-            --secondary-color: #0056b3;
-            --bg-color: #e3f2fd;
-            --text-color: #0c1f3f;
-        }
-        
-        [data-theme="green"] {
-            --primary-color: #28a745;
-            --secondary-color: #155724;
-            --bg-color: #e9fbe3;
-            --text-color: #102b12;
-        }
-        
-        [data-theme="purple"] {
-            --primary-color: #6f42c1;
-            --secondary-color: #4e2a84;
-            --bg-color: #f3e8ff;
-            --text-color: #2e1b4b;
-        }
-        
-        [data-theme="orange"] {
-            --primary-color: #fd7e14;
-            --secondary-color: #b35c00;
-            --bg-color: #fff5e6;
-            --text-color: #732d00;
-        }
-        
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            transition: background 0.3s, color 0.3s;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh; /* Ensures the body takes full height */
-        }
-        
-        .main-content {
-            flex: 1; /* Allows the main content to grow and fill the space */
-        }
-        
-        .navbar {
-            background-color: var(--secondary-color) !important;
-            transition: background-color 0.3s;
-        }
-        
-        .navbar:hover {
-            background-color: darken(var(--secondary-color), 10%); /* Darkens on hover */
-        }
-        
-        .btn {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            transition: background-color 0.3s, transform 0.2s; /* Animation on hover */
-        }
-        
-        .btn:hover {
-            background-color: var(--secondary-color);
-            color: white;
-            transform: scale(1.05); /* Slightly enlarges the button on hover */
-        }
-        
-        footer {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 20px 0;
-            position: relative; /* Allows for positioning */
-            bottom: 0; /* Sticks to the bottom */
-            width: 100%; /* Full width */
-        }
-        
-        footer a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s; /* Animation for link color */
-        }
-        
-        footer a:hover {
-            text-decoration: underline;
-            color: var(--primary-color); /* Changes color on hover */
-        }
-        
-        /* Animation for footer */
-        footer {
-            animation: fadeIn 0.5s ease-in; /* Fade-in effect for footer */
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    
+
     <nav class="navbar navbar-expand-lg navbar-dark shadow">
         <div class="container">
             <a class="navbar-brand fw-bold text-warning" href="{% url 'home' %}">Vincent Muli</a>
@@ -130,10 +21,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link fw-medium text-light" href="{% url 'about' %}">About</a></li>
-                    <li class="nav-item"><a class="nav-link fw-medium text-light" href="{% url 'projects' %}">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link fw-medium text-light" href="{% url 'contact' %}">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link fw-medium text-light" href="{% url 'certifications' %}">Certifications</a></li <li class="nav-item dropdown">
+                    <li class="nav-item"><a class="nav-link fw-medium" href="{% url 'about' %}">About</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="{% url 'projects' %}">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="{% url 'contact' %}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="{% url 'certifications' %}">Certifications</a></li>
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-warning" href="#" id="themeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fas fa-palette"></i> Theme
                         </a>
@@ -150,37 +42,42 @@
         </div>
     </nav>
 
-    <main class="container mt-4">
+    <main class="container mt-4 main-content">
         {% block content %}{% endblock %}
     </main>
 
     <footer class="footer mt-4 text-center">
         <div class="container">
-            <p>© 2025 Vincent Muli | Powered by AI</p>
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="https://www.linkedin.com/in/vincent-muthiani-125025250" target="_blank">LinkedIn</a></li>
-                <li class="list-inline-item"><a href="{% url 'privacy_policy' %}">Privacy Policy</a></li> 
+            <p class="mb-1">&copy; 2025 Vincent Muli | Powered by AI</p>
+            <ul class="list-inline mb-0">
+                <li class="list-inline-item"><a href="https://www.linkedin.com/in/vincent-muthiani-125025250" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li class="list-inline-item"><a href="{% url 'privacy_policy' %}">Privacy Policy</a></li>
             </ul>
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const themeOptions = document.querySelectorAll(".theme-option");
-            const body = document.body;
+            const body = document.body; // Correctly reference the body element
 
-            // Load stored theme from localStorage
-            const savedTheme = localStorage.getItem("selectedTheme") || "default";
-            body.setAttribute("data-theme", savedTheme);
+            // Load stored theme from localStorage on initial page load
+            const savedTheme = localStorage.getItem("selectedTheme");
+            if (savedTheme) {
+                body.setAttribute("data-theme", savedTheme);
+            } else {
+                body.setAttribute("data-theme", "default"); // Set a default if none saved
+            }
+
 
             // Change theme when user selects one
             themeOptions.forEach(option => {
-                option.addEventListener("click", function () {
+                option.addEventListener("click", function (event) {
+                    event.preventDefault(); // Prevent default link behavior
                     const selectedTheme = this.getAttribute("data-theme");
-                    body.setAttribute("data-theme", selectedTheme);
+                    body.setAttribute("data-theme", selectedTheme); // Apply to body
                     localStorage.setItem("selectedTheme", selectedTheme);
                 });
             });

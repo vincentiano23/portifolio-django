@@ -1,39 +1,47 @@
 {% extends 'base.html' %}
-{% load static %} 
+{% load static %}
+
 {% block title %}Projects{% endblock %}
 
 {% block content %}
 <div class="container mt-5">
-    <h2 class="text-center mb-4 fw-bold text-primary">My Projects</h2>
-    
-    <div class="row">
+    <h2 class="text-center mb-5 fw-bold text-primary display-4 animate__animated animate__fadeInDown">My Projects</h2>
+
+    <div class="row justify-content-center"> {# Centered columns for better layout if not full row #}
         {% for project in projects %}
-        <div class="col-md-4">
-            <div class="card shadow-lg mb-4">
+        <div class="col-lg-4 col-md-6 col-sm-10 mb-4"> {# Adjusted column classes for better responsiveness #}
+            <div class="project-card h-100 shadow-lg border-0 rounded-3 overflow-hidden animate__animated animate__fadeInUp">
                 {% if project.image %}
-                <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.name }}">
+                <div class="project-card-img-container">
+                    <img src="{{ project.image.url }}" class="project-card-img-top" alt="{{ project.name }} project image">
+                </div>
                 {% else %}
-                <img src="{% static 'images/default_project.jpg' %}" class="card-img-top" alt="Project Image">
+                <div class="project-card-img-container">
+                    <img src="{% static 'images/default_project.jpg' %}" class="project-card-img-top" alt="">
+                </div>
                 {% endif %}
-                
-                <div class="card-body text-center">
-                    <h5 class="card-title fw-bold">{{ project.name }}</h5>
-                    <p class="card-text text-muted">{{ project.description }}</p>
-                    
-                    <a href="{{ project.live_demo_url }}" target="_blank" class="btn btn-warning">
-                        <i class="fas fa-external-link-alt"></i> View Live
-                    </a>
-                    
-                    {% if project.details_url %}
-                    <a href="{{ project.details_url }}" class="btn btn-outline-dark ms-2">
-                        <i class="fas fa-info-circle"></i> More Details
-                    </a>
-                    {% endif %}
+
+                <div class="card-body text-center d-flex flex-column"> {# Use flex for vertical alignment #}
+                    <h5 class="card-title fw-bold mb-2">{{ project.name }}</h5> {# No text-dark here; style.css handles it #}
+                    <p class="card-text text-muted flex-grow-1">{{ project.description }}</p> {# Allow description to grow #}
+
+                    <div class="mt-auto d-grid gap-2"> {# Push buttons to bottom, use Bootstrap grid gap #}
+                        <a href="{{ project.live_demo_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                            <i class="fas fa-external-link-alt me-2"></i> View Live
+                        </a>
+                        {% if project.details_url %}
+                        <a href="{{ project.details_url }}" class="btn btn-outline-secondary">
+                            <i class="fas fa-info-circle me-2"></i> More Details
+                        </a>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
         {% empty %}
-        <p class="text-center text-muted">No projects available at the moment.</p>
+        <div class="col-12">
+            <p class="text-center text-muted fs-5">No projects available at the moment. Please check back soon!</p>
+        </div>
         {% endfor %}
     </div>
 </div>
