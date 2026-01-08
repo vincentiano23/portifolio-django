@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import ContactForm
+from django.utils import timezone
 
 def home(request):
     return render(request, 'home.html')
@@ -47,3 +48,9 @@ def contact_view(request):
 def privacy_policy(request):
     return render(request, 'privacy_policy.html')
 
+def cv_view(request):
+    """Display the CV in a web-friendly format"""
+    context = {
+        'current_year': timezone.now().year,
+    }
+    return render(request, 'cv.html', context)

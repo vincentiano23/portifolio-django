@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vincent Muthiani Muli - CV</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background-color: #f8f9fa;
+            line-height: 1.6;
+        }
+        
+        .cv-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .cv-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .cv-header h1 {
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .cv-header p {
+            margin-bottom: 0.2rem;
+            opacity: 0.9;
+        }
+        
+        .cv-header .tagline {
+            font-style: italic;
+            margin-top: 0.5rem;
+            opacity: 0.8;
+        }
+        
+        .cv-section {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cv-section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+            display: inline-block;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .contact-item i {
+            color: var(--secondary-color);
+            width: 20px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -34px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            border: 2px solid white;
+        }
+        
+        .timeline-date {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .skill-category {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .skill-category h5 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .skill-item {
+            margin-bottom: 0.3rem;
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background-color: #eee;
+            border-radius: 4px;
+            margin-top: 0.2rem;
+            overflow: hidden;
+        }
+        
+        .skill-level {
+            height: 100%;
+            background-color: var(--secondary-color);
+            border-radius: 4px;
+        }
+        
+        .project-card {
+            border: 1px solid #eee;
+            border-radius: 6px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+            margin-top: 0.5rem;
+        }
+        
+        .tech-tag {
+            background-color: #e3f2fd;
+            color: var(--secondary-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+        
+        .qr-code-container {
+            position: absolute;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+        }
+        
+        .qr-code {
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            padding: 5px;
+            border-radius: 4px;
+        }
+        
+        .qr-code-text {
+            font-size: 0.7rem;
+            margin-top: 0.3rem;
+            color: white;
+        }
+        
+        .interest-item {
+            display: inline-block;
+            margin-right: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .interest-item i {
+            color: var(--secondary-color);
+            margin-right: 0.3rem;
+        }
+        
+        .github-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 0.5rem;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            flex: 1;
+            margin: 0 0.5rem;
+        }
+        
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        @media print {
+            .cv-container {
+                box-shadow: none;
+                margin: 0;
+                max-width: 100%;
+            }
+            
+            .qr-code-container {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .qr-code-container {
+                position: static;
+                transform: none;
+                margin-top: 1rem;
+                text-align: left;
+            }
+            
+            .cv-header {
+                text-align: center;
+            }
+            
+            .contact-info {
+                justify-content: center;
+            }
+            
+            .github-stats {
+                flex-direction: column;
+            }
+            
+            .stat-item {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <div class="cv-header">
+            <h1>Vincent Muthiani Muli</h1>
+            <p class="tagline">Creative Problem Solver | Web Developer | Mathematics & Computer Science Graduate</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>vincentmuthiani21@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+254703292479</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Nairobi, Kenya</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <span>linkedin.com/in/vincent-muli</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <span>github.com/vincentiano23</span>
+                </div>
+            </div>
+            
+            <div class="qr-code-container">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://vin-portifolio.vercel.app/" alt="Portfolio QR Code" class="qr-code">
+                <p class="qr-code-text">Scan to view my portfolio</p>
+            </div>
+        </div>
+        
+        <div class="cv-section">
+            <h2 class="section-title">Professional Summary</h2>
+            <p>Recent graduate with a Bachelor of Science in Mathematics and Computer Science, passionate about solving real-world problems through innovative web-based solutions. Creative thinker with strong analytical skills developed through mathematical studies and practical project experience. Proficient in modern web development technologies with a portfolio of successful projects demonstrating problem-solving abilities and technical expertise. Seeking to apply my skills and enthusiasm to create impactful digital solutions in a dynamic ICT role.</p>
+        </div>
+        
+        <div class="cv-section">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2021 - October 2025</div>
+                    <h4>Bachelor of Science in Mathematics and Computer Science</h4>
+                    <p><strong>Meru University Of Science and Technology</strong>, Meru</p>
+                    <p>Relevant Coursework: Web Development, Data Structures, Algorithms, Database Management, Software Engineering, Discrete Mathematics, Calculus, Linear Algebra</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cv-section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h5>Frontend Development</h5>
+                    <div class="skill-item">
+                        <div>HTML5 / CSS3</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div>JavaScript / TypeScript</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div>React / Vue.js</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div>Bootstrap / Tailwind CSS</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h5>Backend Development</h5>
+                    <div class="skill-item">
+                        <div>Python / Django</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div>Node.js / Express</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div>RESTful APIs</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div>SQL / PostgreSQL</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h5>Tools & Technologies</h5>
+                    <div class="skill-item">
+                        <div>Git / GitHub</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div>Docker / Cloud Services</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 65%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div>CI/CD / Vercel</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div>Agile / Scrum</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cv-section">
+            <h2 class="section-title">Projects</h2>
+            
+            <div class="project-card">
+                <div class="project-title">Attendance System</div>
+                <p>Automated QR-based student attendance system using Django. Implemented real-time tracking, data analytics, and reporting features to streamline attendance management in educational institutions.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Django</span>
+                    <span class="tech-tag">QR Code</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">Bootstrap</span>
+                </div>
+                <div class="mt-2">
+                    <a href="https://github.com/vincentiano23/auto-generate-QR-attendance.git" target="_blank" class="btn btn-sm btn-outline-primary">
+                        <i class="fab fa-github me-1"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-title">AI Chatbot</div>
+                <p>Intelligent chatbot built with AI capabilities to assist users with inquiries. Implemented natural language processing and machine learning to provide accurate and contextual responses.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">NLP</span>
+                    <span class="tech-tag">Machine Learning</span>
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">React</span>
+                </div>
+                <div class="mt-2">
+                    <a href="https://github.com/vincentiano23/ai-chatbot" target="_blank" class="btn btn-sm btn-outline-primary">
+                        <i class="fab fa-github me-1"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-title">Point of Sale (POS) System</div>
+                <p>Comprehensive POS system with inventory management, payment processing, and sales analytics. Designed to streamline retail operations and provide valuable business insights.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Django</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">Stripe API</span>
+                    <span class="tech-tag">Chart.js</span>
+                </div>
+                <div class="mt-2">
+                    <a href="https://github.com/vincentiano23/POS-.git" target="_blank" class="btn btn-sm btn-outline-primary">
+                        <i class="fab fa-github me-1"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="https://github.com/vincentiano23" target="_blank" class="btn btn-outline-primary">
+                    <i class="fab fa-github me-2"></i>View More Projects on GitHub
+                </a>
+            </div>
+        </div>
+        
+        <div class="cv-section">
+            <h2 class="section-title">GitHub Profile</h2>
+            <div class="row">
+                <div class="col-md-8">
+                    <p>Active GitHub contributor with a focus on web development projects. Committed to clean code, documentation, and collaborative development practices.</p>
+                    <div class="github-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Repositories</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-label">Commits</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">Projects</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="https://github-readme-stats.vercel.app/api?username=vincentiano23&show_icons=true&theme=blueberry" alt="GitHub Stats" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+        
+        <div class="cv-section">
+            <h2 class="section-title">Education & Certifications</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2021 - October 2025</div>
+                    <h4>Bachelor of Science in Mathematics and Computer Science</h4>
+                    <p><strong>Meru University Of Science and Technology</strong>, Meru</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Available Upon Request</div>
+                    <h4>Institutional Certifications</h4>
+                    <p>Academic certificates and achievement awards from Meru University of Science and Technology available upon request during the interview process.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cv-section">
+            <h2 class="section-title">Interests & Activities</h2>
+            <div>
+                <span class="interest-item"><i class="fas fa-code"></i> Open Source Contributions</span>
+                <span class="interest-item"><i class="fas fa-brain"></i> AI & Machine Learning</span>
+                <span class="interest-item"><i class="fas fa-puzzle-piece"></i> Problem Solving</span>
+                <span class="interest-item"><i class="fas fa-paint-brush"></i> UI/UX Design</span>
+                <span class="interest-item"><i class="fas fa-book"></i> Technical Writing</span>
+                <span class="interest-item"><i class="fas fa-users"></i> Hackathons</span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
